@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="Theme.MovieDB" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/candy_pink</item>
+        <item name="colorPrimaryVariant">@color/candy_pink</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorOnSecondary</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowLightNavigationBar" tools:targetApi="O_MR1">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:navigationBarColor">?attr/colorOnSecondary</item>
+        <item name="textFillColor">@color/white</item>
+        <item name="colorAccent">@color/candy_pink</item>
+
+    </style>
+
+    <style name="Theme.MovieDB.Starting" parent="Theme.SplashScreen">
+
+        <item name="windowSplashScreenBackground">?attr/colorPrimary</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_baseline_local_movies_24</item>
+        <item name="windowSplashScreenAnimationDuration">200</item>
+        <item name="postSplashScreenTheme">@style/Theme.MovieDB</item>
+
+    </style>
+
+</resources>

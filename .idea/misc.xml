@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable-v24/ic_baseline_read_more_24_night.xml" value="0.24717948717948718" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/drawable-v24/list_item_night.xml" value="0.24717948717948718" />
+        <entry key="app/src/main/res/drawable/detail_overlay_day.xml" value="0.24259259259259258" />
+        <entry key="app/src/main/res/drawable/detail_overlay_night.xml" value="0.24259259259259258" />
+        <entry key="app/src/main/res/drawable/edittext_cursor_day.xml" value="0.23703703703703705" />
+        <entry key="app/src/main/res/drawable/ic_baseline_close_24_day.xml" value="0.24259259259259258" />
+        <entry key="app/src/main/res/drawable/ic_baseline_close_24_night.xml" value="0.24259259259259258" />
+        <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.24717948717948718" />
+        <entry key="app/src/main/res/drawable/ic_baseline_local_movies_24.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_read_more_24_day.xml" value="0.24717948717948718" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.24717948717948718" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search_24_day.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search_24_night.xml" value="0.24717948717948718" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/drawable/list_item.xml" value="0.24717948717948718" />
+        <entry key="app/src/main/res/drawable/list_item_day.xml" value="0.24717948717948718" />
+        <entry key="app/src/main/res/layout-night/detail_overlay.xml" value="0.2346014492753623" />
+        <entry key="app/src/main/res/layout-night/list_item.xml" value="0.23489583333333333" />
+        <entry key="app/src/main/res/layout/detail_overlay.xml" value="0.2346014492753623" />
+        <entry key="app/src/main/res/layout/home_fragment.xml" value="0.23489583333333333" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/main_content.xml" value="0.23489583333333333" />
+        <entry key="app/src/main/res/layout/main_nav_host.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.23489583333333333" />
+        <entry key="app/src/main/res/menu/navigation.xml" value="0.23489583333333333" />
+        <entry key="app/src/main/res/menu/toolbar.xml" value="0.23489583333333333" />
+        <entry key="app/src/main/res/menu/toolbar_day.xml" value="0.23489583333333333" />
+        <entry key="app/src/main/res/menu/toolbar_night.xml" value="0.23489583333333333" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.25104166666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

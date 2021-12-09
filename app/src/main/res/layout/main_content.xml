@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/main_content"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="?attr/colorOnPrimary">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_search"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="32dp"
+
+        app:boxBackgroundColor="?attr/colorOnPrimary"
+        app:boxBackgroundMode="filled"
+
+        android:elevation="10dp"
+
+        android:fitsSystemWindows="true"
+
+        android:visibility="gone"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_search"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+
+            android:background="?attr/colorOnPrimary"
+            android:textCursorDrawable="@drawable/edittext_cursor"
+
+            android:inputType="text"
+            android:imeOptions="actionSearch" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcv_main"
+
+        android:name="androidx.navigation.fragment.NavHostFragment"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginTop="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+
+        app:defaultNavHost="true"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MovieDB</string>
+    <string name="Search">Search</string>
+    <string name="Home">Home</string>
+    <string name="Title">Title</string>
+    <string name="Genre">Genre</string>
+    <string name="Popularity">Popularity</string>
+    <string name="Release">Release</string>
+    <string name="Close_Detail_Overlay">Close Detail Overlay</string>
+    <string name="Runtime">Runtime</string>
+    <string name="Link">Link</string>
+    <string name="Overview">Overview</string>
+    <string name="Clear_Search">Clear Search</string>
+    <string name="Movie_Poster">Movie Poster</string>
+    <string name="Movie_Backdrop">Movie Backdrop</string>
+</resources>
