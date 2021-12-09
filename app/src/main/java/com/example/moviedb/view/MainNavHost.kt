@@ -23,11 +23,13 @@ import com.example.moviedb.util.editable
 import com.example.moviedb.viewmodel.TMDBViewModel
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainNavHost : AppCompatActivity() {
 
-    private val binding by lazy { MainNavHostBinding.inflate(layoutInflater) }
+    @Inject
+    lateinit var binding: MainNavHostBinding
 
     private val tmdbViewModel by viewModels<TMDBViewModel>()
 
