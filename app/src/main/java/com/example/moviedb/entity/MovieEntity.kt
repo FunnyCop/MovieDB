@@ -21,6 +21,6 @@ data class MovieEntity(
     val popularity: Double,
     @ColumnInfo(name = "vote_count") val voteCount: String,
     val video: Boolean,
-    @ColumnInfo(name = "vote_average") val voteAverage: Internal.DoubleList
+    @ColumnInfo(name = "vote_average") val voteAverage: Double
 
 )
