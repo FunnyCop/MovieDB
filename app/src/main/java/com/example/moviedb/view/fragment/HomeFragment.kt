@@ -2,6 +2,7 @@ package com.example.moviedb.view.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,8 +14,12 @@ import com.example.moviedb.adapter.MovieListAdapter
 import com.example.moviedb.databinding.HomeFragmentBinding
 import com.example.moviedb.layoutmanager.MovieListLayoutManager
 import com.example.moviedb.listener.PagedScrollListener
+import com.example.moviedb.model.Genre
 import com.example.moviedb.model.Movie
 import com.example.moviedb.util.TMDB_IMAGE_BASE_URL
+import com.example.moviedb.util.convertToModelList
+import com.example.moviedb.util.observeUntilNotEmpty
+import com.example.moviedb.viewmodel.LocalGenreViewModel
 import com.example.moviedb.viewmodel.TMDBViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -26,6 +31,7 @@ class HomeFragment : Fragment() {
     lateinit var binding: HomeFragmentBinding
 
     private val tmdbViewModel by activityViewModels<TMDBViewModel>()
+    private val localGenreViewModel by activityViewModels<LocalGenreViewModel>()
 
     private var page = 1
 
@@ -48,14 +54,12 @@ class HomeFragment : Fragment() {
 
     private fun initObservers() {
 
-        tmdbViewModel.genres.observe(viewLifecycleOwner) {
+        localGenreViewModel.genres.observeUntilNotEmpty(viewLifecycleOwner) {
 
-            if (it != null)
-                initRvAdapter()
+            if (it.isNotEmpty())
+                initRvAdapter(it.convertToModelList())
 
         }
-
-        tmdbViewModel.getGenres()
 
     }
 
@@ -70,14 +74,14 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun initRvAdapter() = with(binding) {
+    private fun initRvAdapter(genres: List<Genre>) = with(binding) {
 
         context?.let { rvMain.layoutManager = MovieListLayoutManager(it) }
 
         rvMain.adapter = MovieListAdapter(
 
             listOf(),
-            tmdbViewModel.genres.value,
+            genres,
             ::detailClick
 
         )
@@ -143,7 +147,7 @@ class HomeFragment : Fragment() {
             detailOverlay.visibility = View.VISIBLE
             tvTitle.text = "Title: ${movie.title}"
             tvGenre.text = "Genre(s): ${genres.joinToString(", ")}"
-            tvPopularity.text = "Popularity: ${movie.popularity.toString()}"
+            tvPopularity.text = "Popularity: ${movie.popularity}"
             tvRelease.text = "Release Date: ${movie.releaseDate}"
             tvOverview.text = "Overview: ${movie.overview}"
 

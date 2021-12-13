@@ -4,12 +4,14 @@ import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -19,7 +21,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.moviedb.R
 import com.example.moviedb.databinding.MainNavHostBinding
-import com.example.moviedb.util.editable
+import com.example.moviedb.util.*
+import com.example.moviedb.viewmodel.LocalGenreViewModel
 import com.example.moviedb.viewmodel.TMDBViewModel
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,6 +35,7 @@ class MainNavHost : AppCompatActivity() {
     lateinit var binding: MainNavHostBinding
 
     private val tmdbViewModel by viewModels<TMDBViewModel>()
+    private val localGenreViewModel by viewModels<LocalGenreViewModel>()
 
     private val navHostFragment by lazy {
 
@@ -48,8 +52,11 @@ class MainNavHost : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         window.statusBarColor = Color.BLACK
         window.statusBarColor = Color.BLACK
+        installSplashScreen().setKeepVisibleCondition { localGenreViewModel.genres.value.isNullOrEmpty() }
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        initLocalStorage()
 
         initViews()
         initListeners()
@@ -105,6 +112,27 @@ class MainNavHost : AppCompatActivity() {
     override fun onSupportNavigateUp() = with(navHostFragment.navController) {
 
         navigateUp(appBarConfig) || super.onSupportNavigateUp()
+
+    }
+
+    private fun initLocalStorage() {
+
+        localGenreViewModel.genres.observeUntilNotEmpty(this) { localGenres ->
+
+            if (localGenres.isEmpty()) {
+
+                tmdbViewModel.genres.observeUntilNotNull(this) { remoteGenres ->
+
+                    if (remoteGenres != null)
+                        localGenreViewModel.addGenres(remoteGenres.convertToEntityList())
+
+                }
+
+                tmdbViewModel.getGenres()
+
+            }
+
+        }
 
     }
 
