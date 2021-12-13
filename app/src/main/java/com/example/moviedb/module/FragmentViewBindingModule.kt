@@ -12,7 +12,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Module
 @InstallIn(FragmentComponent::class)
-class ViewBindingModule {
+class FragmentViewBindingModule {
 
     @Provides
     fun provideHomeFragmentBinding(@ActivityContext context: Context) =
